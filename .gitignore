@@ -68,7 +68,7 @@ node_modules/
 # ImageProcessor DiskCache 
 **/App_Data/cache/
 # Backup files
-*.bak
+#*.bak
 
 #Site Assets
 dist
