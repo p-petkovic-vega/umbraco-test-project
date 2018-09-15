@@ -230,6 +230,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdditionalModels\EmailFormData.cs" />
     <Compile Include="AdditionalModels\Pagination\PaginationModel.cs" />
     <Compile Include="AdditionalModels\Pagination\ReadOnlyPagedCollection.cs" />
     <Compile Include="Constants.cs" />
@@ -300,7 +301,6 @@
     <Compile Include="Generated\Repository.generated.cs">
       <DependentUpon>ModelsBuilder.cs</DependentUpon>
     </Compile>
-    <Compile Include="Generated\Settings.cs" />
     <Compile Include="Generated\Page.cs" />
     <Compile Include="Generated\Settings.generated.cs">
       <DependentUpon>ModelsBuilder.cs</DependentUpon>
