@@ -1,0 +1,307 @@
+﻿@inherits UmbracoViewPage<EmailForm>
+
+<div class="main-content body one-column cf">
+    <form id="form" action="/umbraco/surface/EmailController/SendEmail" method="post">
+        <fieldset>
+            <legend>General Information</legend>
+            <div class="gf-row cf">
+                <label>Resort:*</label>
+                <select id="resort" name="Resort" required>
+                    <option value="">Select...</option>
+                    <option>Tring</option>
+                    <option>Forest Mere</option>
+                    <option>Henlow</option>
+                    <option>Springs</option>
+                </select>
+            </div>
+            <div class="gf-row cf">
+                <label>Reference Number:*</label>
+                <input id="reference-number" type="text" name="ReferenceNum" required />
+            </div>
+            <div class="gf-row cf">
+                <label>Name:*</label>
+                <input id="name" type="text" name="GuestName" required />
+            </div>
+
+            <div class="gf-row cf">
+                <label>Date of Last Visit:</label>
+                <input type="text" class="past-date" name="LastVisitDate" />
+            </div>
+            <div class="gf-row cf">
+                <label>Arrival Date:</label>
+                <input type="text" class="narrow date" name="ArrivalDate" />
+            </div>
+            <div class="gf-row cf">
+                <label>Est Time of Arrival:</label>
+                <input type="text" class="narrow" name="ArrivalTime" />
+            </div>
+            <div class="gf-row cf">
+                <label>Departure Date:</label>
+                <input type="text" class="narrow date" name="DepartureDate" />
+            </div>
+            <div class="gf-row cf">
+                <label>Telephone Number:*</label>
+                <input id="telephone-number" type="text" name="Tel" class="narrow" required />
+            </div>
+            <div class="gf-row cf">
+                <label>Best time to call:</label>
+                <input type="text" class="narrow" name="BestTimeToCall" />
+            </div>
+            <div class="gf-row-space cf"></div>
+            <div class="gf-row-space cf"></div>
+            <div class="gf-row cf">
+                <label>Email Address:*</label>
+                <input id="email-address" type="text" name="Email" required />
+            </div>
+            <div class="gf-row cf">
+                <label class="multi-line">If there are other guests in your group, please let us now their names (for groups of 10 or more please contact us directly at <a href="mailto:reservations@champneys.com">reservations@champneys.com</a>)</label>
+                <textarea name="OtherGuests"></textarea>
+            </div>
+            <div class="gf-row cf checkbox">
+                <label>If you have already completed a Guest Request Form for this visit please tick here </label>
+                <input type="checkbox" name="AlreadyCompletedForm" value="yes" />
+            </div>
+
+
+            <div class="gf-row cf checkbox">
+                <label class="multi-line">If you are staying overnight with us would you like a:<br /><em>(Economy and standard rooms are twin only)</em></label>
+                <input type="radio" name="OvernightRoomType" value="Twin"><label class="gf-radio">Twin</label>
+                <input type="radio" name="OvernightRoomType" value="Double"><label class="gf-radio">Double</label>
+            </div>
+            <div class="gf-row cf checkbox">
+                <label>GUEST 1: Name</label>
+                <input type="text" name="Guest1_Name" />
+            </div>
+            <div class="gf-row cf checkbox">
+                <label>GUEST 2: Name</label>
+                <input type="text" name="Guest2_Name" />
+            </div>
+            <div class="gf-row cf checkbox">
+                <label class="guest-robes">Guest 1: Robe Size:</label>
+                <input type="radio" name="Guest1_RobeSize" value="M" />
+                <label class="tiny">M</label>
+                <input type="radio" name="Guest1_RobeSize" value="L" />
+                <label class="tiny">L</label>
+                <input type="radio" name="Guest1_RobeSize" value="XL" />
+                <label class="tiny">XL</label>
+                <input type="radio" name="Guest1_RobeSize" value="XXL" />
+                <label class="tiny">XXL</label>
+                <input type="radio" name="Guest1_RobeSize" value="XXXL" />
+                <label class="tiny">XXXL</label>
+            </div>
+            <div class="gf-row cf checkbox">
+                <label class="guest-robes">Flip Flop Size:</label>
+                <input type="radio" name="Guest1_FlipFlopSize" value="S(37)" />
+                <label class="tiny">S(37)</label>
+                <input type="radio" name="Guest1_FlipFlopSize" value="M(40)" />
+                <label class="tiny">M (40)</label>
+                <input type="radio" name="Guest1_FlipFlopSize" value="L(44)" />
+                <label class="tiny">L (44)</label>
+            </div>
+            <div class="gf-row cf checkbox">
+                <label class="multi-line">Would you like to upgrade to slippers for £2 per person?:</label>
+                <input type="radio" name="Guest1_SlipperUpgrade" id="Guest1_SlipperUpgradeYes" value="yes" data-costgroup="Info"><label class="gf-radio">Yes</label>
+                <input type="radio" name="Guest1_SlipperUpgrade" value="no" data-costgroup="Info"><label class="gf-radio">No</label>
+            </div>
+            <div class="gf-row-space cf"></div>
+            <div class="gf-row cf checkbox">
+                <label class="guest-robes">Guest 2: Robe Size:</label>
+                <input type="radio" name="Guest2_RobeSize" value="M" />
+                <label class="tiny">M</label>
+                <input type="radio" name="Guest2_RobeSize" value="L" />
+                <label class="tiny">L</label>
+                <input type="radio" name="Guest2_RobeSize" value="XL" />
+                <label class="tiny">XL</label>
+                <input type="radio" name="Guest2_RobeSize" value="XXL" />
+                <label class="tiny">XXL</label>
+                <input type="radio" name="Guest2_RobeSize" value="XXXL" />
+                <label class="tiny">XXXL</label>
+            </div>
+            <div class="gf-row cf checkbox">
+                <label class="guest-robes">Flip Flop Size:</label>
+                <input type="radio" name="Guest2_FlipFlopSize" value="S(37)" />
+                <label class="tiny">S(37)</label>
+                <input type="radio" name="Guest2_FlipFlopSize" value="M(40)" />
+                <label class="tiny">M (40)</label>
+                <input type="radio" name="Guest2_FlipFlopSize" value="L(44)" />
+                <label class="tiny">L (44)</label>
+            </div>
+            <div class="gf-row cf checkbox">
+                <label class="multi-line">Would you like to upgrade to slippers for £2 per person?:</label>
+                <input type="radio" name="Guest2_SlipperUpgrade" id="Guest2_SlipperUpgradeYes" value="yes" data-costgroup="Info"><label class="gf-radio">Yes</label>
+                <input type="radio" name="Guest2_SlipperUpgrade" value="no" data-costgroup="Info"><label class="gf-radio">No</label>
+            </div>
+            <div class="gf-row-space cf"></div>
+            <div class="gf-row cf checkbox">
+                <label class="multi-line">Dietary requirements:</label>
+                <input type="radio" name="DietaryRequirements" value="None" data-costgroup="Info"><label class="gf-radio">None</label>
+                <input type="radio" name="DietaryRequirements" value="Halal" data-costgroup="Info"><label class="gf-radio">Halal</label>
+                <input type="radio" name="DietaryRequirements" id="DietaryRequirements_Kosher" value="Kosher" data-costgroup="Info"><label class="gf-radio">Kosher*</label>
+                <select class="gf-kosher-qty" name="Kosher_Count" data-costgroup="Info" style="display: none;">
+                    <option value="1">1 guest</option>
+                    <option value="2">2 guests</option>
+                </select>
+                <label class="multi-line">(Please note for Kosher diet it is £50 pp per day, or we are more <br />than happy to store your food)</label>
+            </div>
+            <div class="gf-row cf">
+                <label class="multi-line">Please let us know any <br />medical conditions/ allergies </label>
+                <textarea name="MedicalOrAllergies"></textarea>
+            </div>
+            <div class="gf-row cf">
+                <label class="multi-line">Any other important<br />information?</label>
+                <textarea name="OtherInfo"></textarea>
+            </div>
+            <div class="gf-row cf cost">
+                <label>Cost:</label>
+                <input type="text" name="GuestInfo_TotalCost" id="GuestInfo_TotalCost" readonly />
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Treatments</legend>
+            <p>Please let us know the <a href="http://www.champneys.com/spa-resorts/treatments/">treatments</a> you would like to book, and if you would like them in the morning or afternoon. We will endeavour to book these for you, but where this is not possible we will contact you in order to suggest an alternative. Please always try and book additional treatments at least 14 days prior to arrival. </p>
+            <div class="gf-row cf table">
+                <table cellpadding="0" cellspacing="0" border="0" id="treatmentTable">
+                    <tbody>
+                        <tr>
+                            <th>Guest Name</th>
+                            <th>Treatment</th>
+                            <th>Date</th>
+                            <th>AM/PM</th>
+                            <th>Therapist</th>
+                            <th>Cost (&pound;)</th>
+                        </tr>
+                        <tr id="treatmentRow">
+                            <td class="gf-table-m"><input type="text" name="Treatment_GuestName" /></td>
+                            <td class="gf-table-l"><input type="text" name="Treatment_Treatment" /></td>
+                            <td class="gf-table-date"><input type="text" class="date" name="Treatment_Date" /></td>
+                            <td class="gf-table-s"><input type="text" name="Treatment_AMPM" /></td>
+                            <td class="gf-table-s">
+                                <select name="Treatment_Therapist">
+                                    <option value="Either">Either</option>
+                                    <option value="Female">Female</option>
+                                    <option value="Male">Male</option>
+                                </select>
+                            </td>
+                            <td class="gf-table-s"><input type="text" name="Treatment_Cost" data-costgroup="Treatment" /></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button class="add-row" onclick="AddRow('treatmentRow', 'treatmentTable'); return false;">Add Treatment</button>
+            </div>
+        </fieldset>
+
+
+        <fieldset>
+            <legend>Fitness and Wellbeing</legend>
+            <p>Please let us know which classes you would like to attend, there is a £3 booking fee to secure your place. A full activity timetable showing the descriptions of the classes, ability level and prices can be seen <a href="http://www.champneys.com/spa-resorts/fitness/activity-schedules/">here</a>. Please note you do not need to pre-book for the walks or hikes.<br />Some masterclasses and yoga classes have a £5 charge. </p>
+            <div class="gf-row cf table">
+                <table cellpadding="0" cellspacing="0" border="0" id="classTable">
+                    <tbody>
+                        <tr>
+                            <th>Guest Name</th>
+                            <th>Class Name</th>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Cost (&pound;)</th>
+                        </tr>
+                        <tr id="classRow">
+                            <td class="gf-table-m"><input type="text" name="Class_GuestName" /></td>
+                            <td class="gf-table-xl"><input type="text" name="Class_Class" /></td>
+                            <td class="gf-table-date"><input type="text" class="date" name="Class_Date" /></td>
+                            <td class="gf-table-s"><input type="text" name="Class_Time" /></td>
+                            <td class="gf-table-s"><input type="text" name="Class_Cost" data-costgroup="Treatment" /></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button id="add-class" class="add-row">Add Class</button>
+            </div>
+            <div class="gf-row cf">
+                <label></label>
+            </div>
+            <div class="gf-row cf">
+                <label></label>
+            </div>
+            <div class="gf-row cf cost">
+                <label>Cost:</label>
+                <input type="text" name="TreatmentsTotalCost" id="TreatmentsTotalCost" readonly />
+            </div>
+        </fieldset>
+
+
+
+        <fieldset>
+            <legend>Additional Services</legend>
+            <p>To make your visit extra special why not add some additional items to your booking.</p>
+            <label class="gf-additional-date">Date</label>
+            <label class="gf-additional-quantity">Qty</label>
+            <div class="gf-row cf  additional">
+                <label class="additional-item">Afternoon tea (per person)</label>
+                <input class="additional-checkbox" type="checkbox" name="Extra_AfternoonTea" value="yes" data-costgroup="Extra" data-extravalue="9.99">
+                <label class="additional-price">£9.99</label>
+                <input class="additional-date date" name="Extra_AfternoonTea_Date" />
+                <input class="additional-quantity" type="text" name="Extra_AfternoonTea_Count" data-costgroup="Extra" />
+            </div>
+            <div class="gf-row cf  additional">
+                <label class="additional-item">Celebration cake</label>
+                <input class="additional-checkbox" type="checkbox" name="Extra_CelebrationCake" value="yes" data-costgroup="Extra" data-extravalue="20">
+                <label class="additional-price">£20</label>
+                <input class="additional-date date" name="Extra_CelebrationCake_Date" />
+                <input class="additional-quantity" type="text" name="Extra_CelebrationCake_Count" data-costgroup="Extra" />
+            </div>
+            <div class="gf-row cf  additional">
+                <label class="additional-item">Bouquet of flowers</label>
+                <input class="additional-checkbox" type="checkbox" name="Extra_Flowers" value="yes" data-costgroup="Extra" data-extravalue="35">
+                <label class="additional-price">£35</label>
+                <input class="additional-date date" name="Extra_Flowers_Date" />
+                <input class="additional-quantity" type="text" name="Extra_Flowers_Count" data-costgroup="Extra" />
+            </div>
+            <div class="gf-row cf  additional">
+                <label class="additional-item">Bottle of house Champagne</label>
+                <input class="additional-checkbox" type="checkbox" name="Extra_Champagne" value="yes" data-costgroup="Extra" data-extravalue="37.50">
+                <label class="additional-price">£37.50</label>
+                <input class="additional-date date" name="Extra_Champagne_Date" />
+                <input class="additional-quantity" type="text" name="Extra_Champagne_Count" data-costgroup="Extra" />
+            </div>
+            <div class="gf-row cf  additional">
+                <label class="additional-item">Champneys Gift Set</label>
+                <input class="additional-checkbox" type="checkbox" name="Extra_GiftSet" value="yes" data-costgroup="Extra" data-extravalue="35">
+                <label class="additional-price">£35</label>
+                <input class="additional-date date" name="Extra_GiftSet_Date" />
+                <input class="additional-quantity" type="text" name="Extra_GiftSet_Count" data-costgroup="Extra" />
+            </div>
+            <div class="gf-row cf  additional">
+                <label class="additional-item">**Seasonal Promotion** <br />Thalassotherapy Pool Session (RRP £20)</label>
+                <input class="additional-checkbox" type="checkbox" name="Extra_SeasonalPromo" value="yes" data-costgroup="Extra" data-extravalue="10">
+                <label class="additional-price">£10</label>
+                <input class="additional-date date" name="Extra_SeasonalPromo_Date" />
+                <!-- <div class="additional-date-fake"></div>  Replace date input with this div to keep the alignment -->
+                <input class="additional-quantity" type="text" name="Extra_SeasonalPromo_Count" data-costgroup="Extra" />
+            </div>
+            <div class="gf-row cf cost">
+                <label>Cost:</label>
+                <input type="text" name="Extras_TotalCost" id="Extras_TotalCost" readonly />
+            </div>
+        </fieldset>
+        <fieldset>
+            <div class="gf-row cf cost">
+                <label>Total Cost:</label>
+                <input type="text" name="Overall_TotalCost" id="Overall_TotalCost" readonly />
+            </div>
+        </fieldset>
+        <fieldset>
+            <div class="gf-row cf submit-button">
+                <input type="submit" value="Submit Form" />
+            </div>
+        </fieldset>
+
+        <div class="gf-terms">
+            <p>I can confirm that by submitting and completing this form, I have read and understood the booking conditions and treatment contra-indications as stated on the Champneys website. I agree to accept the advice given by members of the staff during my visit. I understand that all treatments, services and facilities used during my visit are undertaken at my own risk and Champneys Health Resorts group cannot accept any responsibility for any injury unless due to negligence or breach of duty on the part of the company and its employees. </p>
+        </div>
+
+    </form>
+</div><!-- /.main-content -->
+
+@section additionalFooter{
+    <script src="/scripts/email-form.js"></script>
+}

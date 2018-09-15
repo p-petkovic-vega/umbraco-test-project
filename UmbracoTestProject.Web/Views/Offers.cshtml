@@ -1,0 +1,36 @@
+﻿@inherits UmbracoViewPage<Offers>
+
+<div class="main-content body one-column cf">
+    @Model.IntroText
+</div>
+<!-- /.main-content -->
+@if (Model.Children != null && Model.Children.Any())
+{
+    <div class="offers-grid">
+        @foreach (var item in Model.Children<Offer>())
+        {
+            <div class="offer-item">
+                @if (!string.IsNullOrWhiteSpace(item.PreviewTitle))
+                {
+                    <h2>@item.PreviewTitle</h2>
+                }
+                @if (!string.IsNullOrWhiteSpace(item.PreviewPrice))
+                {
+                    <h3>@item.PreviewPrice</h3>
+                }
+                @if (!string.IsNullOrWhiteSpace(item.PreviewSummary))
+                {
+                    <p><span><span>@item.PreviewSummary</span></span></p>
+                }
+                <a href="@item.Url" class="offer-item-link">@Umbraco.GetDictionaryValue("Offers.Details")</a>
+            </div>
+        }
+    </div>
+@*<ul class="pagination">
+    <li><a href="#">&laquo;</a></li>
+    <li><a href="#">1</a></li>
+    <li class="active"><a href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><a href="#">&raquo;</a></li>
+</ul>*@
+}

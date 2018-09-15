@@ -1,0 +1,16 @@
+﻿@inherits UmbracoViewPage<Offer>
+
+<div class="main-content body two-columns cf">
+    <div class="left-content">
+        @Model.LeftColumnText
+        @if (Model.LeftColumnLink != null)
+        {
+            <a class="content-cta" href="@Model.LeftColumnLink" target="@Model.LeftColumnLink.Target">@Model.LeftColumnLink.Name</a>
+        }
+    </div>
+    <!-- /.left-content -->
+    <div class="right-content">
+        @Model.RightColumnText
+    </div>
+    <!-- /.right-content -->
+</div>

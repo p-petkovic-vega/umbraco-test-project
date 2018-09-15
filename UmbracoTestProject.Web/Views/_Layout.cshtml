@@ -1,0 +1,29 @@
+﻿@inherits UmbracoViewPage<UmbracoTestProject.Models.Page>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@Model.Title | @Umbraco.GetSettings().SiteName</title>
+    <meta name="description" content="@Model.SeoDescription" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <link rel="stylesheet" type="text/css" href="/css/jquery-ui.min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/flexslider.css" />
+    <link rel="stylesheet" type="text/css" href="/css/goring.css" />
+
+    <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script src="/scripts/jquery-ui.min.js"></script>
+    <script src="/scripts/jquery.flexslider-min.js"></script>
+    <script src="/scripts/main.js"></script>
+</head>
+<body>
+    <div id="wrapper">
+        @Html.Partial("~/Views/Partials/Shared/_Header.cshtml", Model)
+        @RenderBody()
+        @Html.Partial("~/Views/Partials/Shared/_Footer.cshtml", Umbraco.GetSettings())
+    </div><!-- /#wrapper -->
+    @RenderSection("additionalFooter", false)
+</body>
+</html>

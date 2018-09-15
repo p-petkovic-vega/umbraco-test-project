@@ -1,0 +1,72 @@
+﻿@inherits UmbracoViewPage<Settings>
+
+<div id="footer">
+    <div id="footer-left-nav">
+        @if (Model.LeftLinks != null && Model.LeftLinks.Any())
+        {
+            <ul>
+                @foreach (var item in Model.LeftLinks)
+                {
+                    <li><a href="@item.Url">@(item.OfType<UmbracoTestProject.Models.Page>().Title)</a></li>
+                }
+            </ul>
+        }
+    </div>
+
+    <div id="footer-icons">
+        <ul id="footer-icons-awards">
+            <li><img src="/images/icon-relais-chateaux.png" /></li>
+            <li><img src="/images/icon-by-appointment.png" /></li>
+            <li><img src="/images/icon-pride-of-britain.png" /></li>
+        </ul>
+        <ul id="footer-icons-social">
+            @if (!string.IsNullOrWhiteSpace(Model.GoogleplusUrl))
+            {
+                <li><a target="_blank" href="@Model.GoogleplusUrl"><img src="/images/icon-google.png" /></a></li>
+            }
+            @if (!string.IsNullOrWhiteSpace(Model.LinkedInUrl))
+            {
+                <li><a target="_blank" href="@Model.LinkedInUrl"><img src="/images/icon-linkedin.png" /></a></li>
+            }
+            @if (!string.IsNullOrWhiteSpace(Model.FacebookUrl))
+            {
+                <li><a target="_blank" href="@Model.FacebookUrl"><img src="/images/icon-facebook.png" /></a></li>
+            }
+            @if (!string.IsNullOrWhiteSpace(Model.TripAdvisorUrl))
+            {
+                <li><a target="_blank" href="@Model.TripAdvisorUrl"><img src="/images/icon-tripadvisor.png" /></a></li>
+            }
+            @if (!string.IsNullOrWhiteSpace(Model.TwitterUrl))
+            {
+                <li><a target="_blank" href="@Model.TwitterUrl"><img src="/images/icon-twitter.png" /></a></li>
+            }
+        </ul>
+    </div>
+
+    <div id="footer-right-nav">
+        @if (Model.RightLinks != null && Model.RightLinks.Any())
+        {
+            <ul>
+                @foreach (var item in Model.RightLinks)
+                {
+                    <li><a href="@item.Url">@(item.OfType<UmbracoTestProject.Models.Page>().Title)</a></li>
+                }
+            </ul>
+        }
+    </div>
+</div><!-- /#footer -->
+<div id="footer-legal-nav">
+    <ul>
+        @if (!string.IsNullOrWhiteSpace(Model.Copyright))
+        {
+            <li>&copy; @Model.Copyright</li>
+        }
+        @if (Model.BottomLinks != null && Model.BottomLinks.Any())
+        {
+            foreach (var item in Model.BottomLinks)
+            {
+                <li><a href="@item.Url">@(item.OfType<UmbracoTestProject.Models.Page>().Title)</a></li>
+            }
+        }
+    </ul>
+</div>

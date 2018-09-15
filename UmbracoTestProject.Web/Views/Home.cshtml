@@ -1,0 +1,14 @@
+﻿@inherits UmbracoViewPage<Home>
+
+<div id="home-content">
+    @if (!string.IsNullOrWhiteSpace(Model.Subtitle))
+    {
+        <div id="home-title">
+            <h1><span>@Html.Raw(Model.Subtitle)</span></h1>
+        </div>
+    }
+    @if (Model.Boxes != null && Model.Boxes.Any())
+    {
+        Html.RenderPartial("~/Views/Partials/_HomeBoxes.cshtml", Model.Boxes.OfType<HomeBox>());
+    }
+</div><!-- /#home-content -->

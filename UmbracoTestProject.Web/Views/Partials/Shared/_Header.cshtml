@@ -1,0 +1,74 @@
+﻿@inherits UmbracoViewPage<UmbracoTestProject.Models.Page>
+
+@{ 
+    var settings = Umbraco.GetSettings();
+    var home = Umbraco.GetHome();
+}
+
+<div id="header">
+    @if (settings.Logo != null)
+    {
+        <div id="logo">
+            <a href="/"><img src="@settings.Logo.Url" alt="The Goring" /></a>
+        </div>
+    }
+    <div id="nav-container">
+        <div id="primary-nav-container">
+            <ul id="primary-nav">
+                <li><a href="@home.Url">@home.Title</a></li>
+                @foreach (var item in home.Children<UmbracoTestProject.Models.Page>())
+                {
+                    <li class="current">
+                        <a href="@item.Url">@item.Title</a>
+                    </li>
+                }
+            </ul>
+        </div>
+
+        <div id="check-avail">
+            <a href="#" id="check-avail-toggle">Book <span>a</span> stay</a>
+            <div id="check-avail-form">
+                <form action="https://gc.synxis.com/rez.aspx" method="get" target="_blank">
+                    <input type="hidden" name="Hotel" value="15601" />
+                    <input type="hidden" name="Chain" value="6386" />
+                    <input type="hidden" name="locale" value="en-gb" />
+                    <input type="hidden" name="start" value="availresults" />
+                    <input type="hidden" name="adult" value="2" />
+                    <input type="text" id="arrive" name="arrive" readonly="readonly" />
+                    <input type="text" id="depart" name="depart" readonly="readonly" />
+                    <div class="check-avail-button">
+                        <input type="submit" id="check-avail-submit" value="Check Availability" />
+                    </div>
+                    <div class="check-avail-button">
+                        <a href="#">Make an enquiry</a>
+                    </div>
+                    <p>Call our team: +44 (0) 20 7396 90005</p>
+                </form>
+            </div>
+        </div><!-- /#check-avail -->
+    </div><!-- /#nav-container -->
+</div><!-- /#header -->
+@if (Model.SliderItems != null && Model.SliderItems.Any())
+{
+    <div class="main-slider flexslider cf">
+        <ul class="slides">
+            @foreach (var item in Model.SliderItems)
+            {
+                var slide = item.OfType<SliderItem>();
+                <li class="@slide.TextPosition">
+                    @if (slide.Image != null)
+                    {
+                        <img src="@slide.Image.Url" alt="" />
+                    }
+                    <div class="keyline"></div>
+                    <div class="flex-caption">
+                        <div class="main-caption">
+                            <p class="flex-caption-header">@Html.Raw(slide.Title)</p>
+                            <p>@slide.Text</p>
+                        </div>
+                    </div>
+                </li>
+            }
+        </ul>
+    </div>
+}
